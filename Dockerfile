@@ -3,9 +3,19 @@
 # 
 # VERSION 0.0.1
 
-FROM debian:wheezy
+FROM tutum/debian:wheezy
 
 MAINTAINER Ivano Masiero <info@eivanomasiero.com>
+
+# set env for nano editor
+ENV TERM=xterm
+ENV ROOT_PASS="password"
+
+# install some utils
+RUN apt-get update && apt-get install -y \
+nano \
+zip \
+unzip
 
 RUN apt-get update \
 	&& apt-get install -y curl tar \
